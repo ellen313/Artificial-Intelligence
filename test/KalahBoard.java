@@ -51,8 +51,11 @@ public class KalahBoard {
 
     // Konsolen-Ein/Ausgabe:
     private static Scanner in = new Scanner(System.in);
-    private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_BLACK = "\u001B[37m";
+    // Farben ausstellen, weil ich keine Lust habe, mein Terminal-Theme zu ändern
+    private static final String ANSI_BLUE = "";
+    private static final String ANSI_BLACK = "";
+    // private static final String ANSI_BLUE = "\u001B[34m";
+    // private static final String ANSI_BLACK = "\u001B[30m";
 
     /**
      * Konstruktor. Legt eine Kalah-Board mit NMulden mit je NSteine an.

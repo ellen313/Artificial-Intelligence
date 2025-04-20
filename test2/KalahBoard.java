@@ -1,4 +1,4 @@
-package kalah;
+package aufgaben.Aufgabe2;
 
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +52,7 @@ public class KalahBoard {
     // Konsolen-Ein/Ausgabe:
     private static Scanner in = new Scanner(System.in);
     private static final String ANSI_BLUE = "\u001B[34m";
-    private static final String ANSI_BLACK = "\u001B[37m";
+    private static final String ANSI_BLACK = "\u001B[39m";
 
     /**
      * Konstruktor. Legt eine Kalah-Board mit NMulden mit je NSteine an.
@@ -414,5 +414,19 @@ public class KalahBoard {
             default:
                 return false;
         }
+    }
+
+    public int h1() {
+        return this.getAKalah() - this.getBKalah();
+//        switch (curPlayer) {
+//            case APlayer:
+//                int tokensPlayerA = Arrays.stream(Arrays.copyOfRange(board, 0, 6)).sum();
+//                return board[AKalah]*20 + (isBonus() ? 5 : 0) + tokensPlayerA;
+//            case BPlayer:
+//                int tokensPlayerB = Arrays.stream(Arrays.copyOfRange(board, 7, 13)).sum();
+//                return board[BKalah]*20 + (isBonus() ? 5 : 0) + tokensPlayerB;
+//            default:
+//                return 0;
+//        }
     }
 }
