@@ -30,9 +30,10 @@ class Board:
         if board:
             self.board = list(board)
         else:
-            self.board = list(range(1, Board.N + 2))
+            # self.board = list(range(1, Board.N + 2))
             while True:
                 self.board = list(range(Board.N + 1))
+                random.shuffle(self.board)
                 if self.parity():
                     break
 
@@ -60,15 +61,15 @@ class Board:
         Gibt True zurück, wenn das Board lösbar ist.
         TODO: Implementiere die Berechnung der Parität
         """
-        #parity_counter = 0
-        #new_board = self.board.copy()
-        #n = len(self.board)
-        #for i in range(n):
-        #    for j in range(n - i - 1):
-        #        if new_board[j] > new_board[j + 1]:
+        # parity_counter = 0
+        # new_board = self.board.copy()
+        # n = len(self.board)
+        # for i in range(n):
+        #     for j in range(n - i - 1):
+        #         if new_board[j] > new_board[j + 1]:
         #            # new_board[j], new_board[j + 1] = new_board[j + 1], new_board[j] #parallele Zuweisung
-        #            parity_counter += 1
-        #return parity_counter
+        #             parity_counter += 1
+        # return parity_counter
 
         false_count = 0
         for i in range(1, len(self.board)):
@@ -80,10 +81,8 @@ class Board:
                 if j == i:
                     break
 
-        #return false_count
-        return false_count % 2 == 0
-
-
+        return false_count
+        # return false_count % 2 == 0
 
     def h1(self):
         """
@@ -108,8 +107,8 @@ class Board:
             if self.board[i] == 0:
                 continue
 
-            row, col = divmod(i, 3)
-            goal_row, goal_col = divmod(self.board[i], 3)
+            row, col = divmod(i, 3)  # Position berechnen
+            goal_row, goal_col = divmod(self.board[i], 3)  # Ziel-Position
 
             result += abs(row - goal_row) + abs(col - goal_col)
 
@@ -130,7 +129,7 @@ class Board:
         # nach oben (Zeile - 1)
         if row > 0:
             new_board = self.board[:]
-            new_board[zero_index], new_board[zero_index - 3] = new_board[zero_index - 3], new_board[zero_index] # tausch der Werte
+            new_board[zero_index], new_board[zero_index - 3] = new_board[zero_index - 3], new_board[zero_index]  # tausch der Werte
             moves.append(Board(new_board))
 
         # nach unten (Zeile + 1)

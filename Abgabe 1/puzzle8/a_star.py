@@ -60,10 +60,13 @@ def a_star(start_board: Board) -> Optional[deque[Board]]:
     heapq.heappush(open_list, Node(start_board))
     closed_list = set()
 
+    states_count = 0
+
     while open_list:
         current_node = heapq.heappop(open_list)
 
         if current_node.board.is_solved():
+            print(f"Anzahl der generierten Zustände: {states_count}")
             return reconstruct_path(current_node)
 
         closed_list.add(current_node.board)
@@ -76,7 +79,10 @@ def a_star(start_board: Board) -> Optional[deque[Board]]:
             h_new = action.h2()
             node = Node(action, current_node, g_new)
 
-            if all(node.f < n.f for n in open_list if n.board == action):
-                heapq.heappush(open_list,node)
+            if all(node.f < n.f for n in open_list if n.board == action):  # testen ob gleiches board nur kürzerer wert
+                heapq.heappush(open_list, node)  # neuen besseren knoten hinzufügen
 
+                states_count += 1
+
+    print(f"Anzahl der generierten Zustände: {states_count}")
     return None  # Kein Pfad gefunden
