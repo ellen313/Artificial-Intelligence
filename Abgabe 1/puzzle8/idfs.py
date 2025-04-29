@@ -3,7 +3,7 @@
 # Author: Ellen Peppmüller, Begüm Peker
 # Datum: 21.03.2025
 # Beschreibung: Implementierung der Iterativen Tiefensuche für
-# das 8-Puzzle-Problem.
+# das 8-Puzzle-problem.py.
 # ------------------------------------------
 
 from board import Board

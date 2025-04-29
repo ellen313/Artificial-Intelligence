@@ -3,7 +3,7 @@
 # ------------------------------------------
 # Author: Ellen Peppmüller, Begüm Peker
 # Datum: 21.03.2025
-# Beschreibung: Implementierung der Board-Klasse für das 8-Puzzle-Problem.
+# Beschreibung: Implementierung der Board-Klasse für das 8-Puzzle-problem.py.
 # ------------------------------------------
 import random
 
