@@ -41,6 +41,8 @@ for federal_state, neighbour_list in neighbours.items():
 
 
 solution = problem.getSolution()
+solutions = problem.getSolutions()
+print(len(solutions))
 
 if solution:
     for federal_state in sorted(solution):
